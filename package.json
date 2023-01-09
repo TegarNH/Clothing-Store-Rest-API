@@ -6,10 +6,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "local": "nodemon ./bin/www",
-    "pretest": "cross-env NODE_ENV=test npm run db:reset",
-    "db:reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
-    "db:create:test": "cross-env NODE_ENV=test sequelize db:create",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
@@ -32,7 +29,10 @@
     "sequelize-cli": "^6.5.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.28.0"
