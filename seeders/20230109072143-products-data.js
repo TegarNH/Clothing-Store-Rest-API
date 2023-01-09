@@ -5,6 +5,7 @@ module.exports = {
     const dataProductsToBeSeeded = productsData.map((eachProductData) => ({
       idBranch: eachProductData.idBranch,
       name: eachProductData.name,
+      category: eachProductData.category,
       price: eachProductData.price,
       stock: eachProductData.stock,
       sold: eachProductData.sold,
