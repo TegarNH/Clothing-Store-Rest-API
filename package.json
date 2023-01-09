@@ -1,0 +1,22 @@
+{
+  "name": "clothing-store-rest-api",
+  "version": "1.0.0",
+  "description": "Rest API used for clothing stores that can provide transaction reports, customer data and clothing data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TegarNH/Clothing-Store-Rest-API.git"
+  },
+  "keywords": [
+    "rest-api"
+  ],
+  "author": "Tegar Naufal Hanip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TegarNH/Clothing-Store-Rest-API/issues"
+  },
+  "homepage": "https://github.com/TegarNH/Clothing-Store-Rest-API#readme"
+}
