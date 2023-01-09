@@ -1,0 +1,32 @@
+[
+  {
+    "idProduct": 1,
+    "idTransaction": 1,
+    "quantity": 2,
+    "totalPrice": 40000
+  },
+  {
+    "idProduct": 1,
+    "idTransaction": 2,
+    "quantity": 1,
+    "totalPrice": 20000
+  },
+  {
+    "idProduct": 2,
+    "idTransaction": 2,
+    "quantity": 1,
+    "totalPrice": 15000
+  },
+  {
+    "idProduct": 2,
+    "idTransaction": 3,
+    "quantity": 2,
+    "totalPrice": 30000
+  },
+  {
+    "idProduct": 3,
+    "idTransaction": 4,
+    "quantity": 2,
+    "totalPrice": 50000
+  }
+]

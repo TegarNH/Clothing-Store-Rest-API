@@ -1,0 +1,34 @@
+[
+  {
+    "idBranch": 1,
+    "name": "Baju 1",
+    "category": "Batik",
+    "price": 20000,
+    "stock": 10,
+    "sold": 200
+  },
+  {
+    "idBranch": 2,
+    "name": "Baju 2",
+    "category": "Jas",
+    "price": 15000,
+    "stock": 8,
+    "sold": 20
+  },
+  {
+    "idBranch": 1,
+    "name": "Baju 3",
+    "category": "Seragam",
+    "price": 25000,
+    "stock": 15,
+    "sold": 100
+  },
+  {
+    "idBranch": 2,
+    "name": "Baju 4",
+    "category": "Batik",
+    "price": 25000,
+    "stock": 9,
+    "sold": 152
+  }
+]

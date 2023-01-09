@@ -1,0 +1,26 @@
+[
+  {
+    "idBranch": 1,
+    "name": "Tegar",
+    "address": "Villa Nusa Indah",
+    "phone": "081234567890"
+  },
+  {
+    "idBranch": 1,
+    "name": "Naufal",
+    "address": "Nusa Indah",
+    "phone": "081234567891"
+  },
+  {
+    "idBranch": 2,
+    "name": "Hanip",
+    "address": "Nusa",
+    "phone": "081234567892"
+  },
+  {
+    "idBranch": 2,
+    "name": "Tegar Naufal",
+    "address": "Indah",
+    "phone": "081234567893"
+  }
+]
