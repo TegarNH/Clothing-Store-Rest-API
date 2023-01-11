@@ -37,14 +37,8 @@ const getHighestAndLowestProductPrice = async (req, res) => {
 
 const getMostPurchasedPruductData = async (req, res) => {
   try {
-    const { month, year } = req.query;
-
-    if (!month || !year) {
-      return res.status(400).json({
-        status: 'Error',
-        message: 'the month and year query is required',
-      });
-    }
+    const month = req.query.month || new Date().getMonth() + 1;
+    const year = req.query.year || new Date().getFullYear();
 
     if (isNaN(month) || isNaN(year)) {
       return res.status(400).json({ error: 'Invalid query type. Expecting number' });
@@ -136,7 +130,52 @@ const getMostPurchasedPruductData = async (req, res) => {
   }
 };
 
+const getProductsThatHaveIncreasedSales = async (req, res) => {
+  try {
+    let { date } = req.body;
+
+    if (!date) {
+      const currentDate = new Date().getDate();
+      const currentMonth = new Date().getMonth();
+      const currentYear = new Date().getFullYear();
+      date = new Date(currentYear, currentMonth, currentDate + 1).toISOString();
+    }
+
+    // Search for data in the database according to the criteria
+    const optionsLastMonth = {
+      attributes: [
+        'idProduct',
+        [sequelize.fn('COALESCE', sequelize.fn('SUM', sequelize.literal(`CASE WHEN (date_part('month', date) = date_part('month', '${date}'::date)) AND (date_part('year', date) = date_part('year', '${date}'::date)) THEN quantity ELSE 0 END`)), 0), 'quantitySoldThisMonth'],
+        [sequelize.fn('COALESCE', sequelize.fn('SUM', sequelize.literal(`CASE WHEN (date_part('month', date) = date_part('month', '${date}'::date - INTERVAL '1 month')) AND (date_part('year', date) = date_part('year', '${date}'::date - (CASE WHEN (date_part('month', '${date}'::date)) = 1 THEN 1 ELSE 0 END))) THEN quantity ELSE 0 END`)), 0), 'quantitySoldLastMonth'],
+      ],
+      include: [Product],
+      group: ['idProduct', 'Product.id'],
+      limit: 5,
+    };
+    const products = await ProductSold.findAll(optionsLastMonth);
+
+    // Calculate product sales increase and sort by increase
+    const result = products.map((item) => {
+      const increase = parseInt(item.dataValues.quantitySoldThisMonth, 10)
+        - parseInt(item.dataValues.quantitySoldLastMonth, 10);
+      return { ...item.dataValues, increase };
+    }).sort((a, b) => b.increase - a.increase);
+
+    return res.status(200).json({
+      status: 'Success',
+      message: `Shows products that experienced an increase in sales on ${date.split('T')[0]} compared to the previous month`,
+      result,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 'Error',
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   getHighestAndLowestProductPrice,
   getMostPurchasedPruductData,
+  getProductsThatHaveIncreasedSales,
 };

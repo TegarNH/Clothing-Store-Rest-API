@@ -4,11 +4,7 @@ const {
 
 const getTotalSalesOfEachBranch = async (req, res) => {
   try {
-    if (!req.params.year) {
-      return res.status(400).json({ error: 'Missing required parameter (year)' });
-    }
-
-    const { year } = req.params;
+    const year = req.query.year || new Date().getFullYear();
 
     if (isNaN(year)) {
       return res.status(400).json({ error: 'Invalid parameter type. Expecting number' });

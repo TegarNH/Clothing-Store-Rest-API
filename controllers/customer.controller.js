@@ -60,14 +60,8 @@ const getNewestAndOldestCustomer = async (req, res) => {
 
 const getCustomerDataThatSpendTheMost = async (req, res) => {
   try {
-    const { month, year } = req.query;
-
-    if (!month || !year) {
-      return res.status(400).json({
-        status: 'Error',
-        message: 'the month and year query is required',
-      });
-    }
+    const month = req.query.month || new Date().getMonth() + 1;
+    const year = req.query.year || new Date().getFullYear();
 
     if (isNaN(month) || isNaN(year)) {
       return res.status(400).json({ error: 'Invalid query type. Expecting number' });
