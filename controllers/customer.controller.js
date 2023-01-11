@@ -10,8 +10,12 @@ const getNewestAndOldestCustomer = async (req, res) => {
     if (!idBranch) {
       return res.status(400).json({
         status: 'Error',
-        message: 'the idBranch parameter is required',
+        message: 'the idBranch query is required',
       });
+    }
+
+    if (isNaN(idBranch)) {
+      return res.status(400).json({ error: 'Invalid query type. Expecting number' });
     }
 
     const branch = await Branch.findByPk(idBranch);
@@ -61,14 +65,18 @@ const getCustomerDataThatSpendTheMost = async (req, res) => {
     if (!month || !year) {
       return res.status(400).json({
         status: 'Error',
-        message: 'the month and year parameter is required',
+        message: 'the month and year query is required',
       });
+    }
+
+    if (isNaN(month) || isNaN(year)) {
+      return res.status(400).json({ error: 'Invalid query type. Expecting number' });
     }
 
     if (!(parseInt(month, 10) >= 1 && parseInt(month, 10) <= 12)) {
       return res.status(400).json({
         status: 'error',
-        msg: 'The month parameter must be a number from 1 to 12',
+        msg: 'The month query must be a number from 1 to 12',
       });
     }
 
