@@ -5,5 +5,6 @@ const router = express.Router();
 router.get('/highest-lowest-prices', productController.getHighestAndLowestProductPrice);
 router.get('/top-selling-products', productController.getMostPurchasedPruductData);
 router.get('/increase-in-product-sales', productController.getProductsThatHaveIncreasedSales);
+router.get('/', productController.getAllProducts);
 
 module.exports = router;

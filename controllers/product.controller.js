@@ -174,8 +174,26 @@ const getProductsThatHaveIncreasedSales = async (req, res) => {
   }
 };
 
+const getAllProducts = async (req, res) => {
+  try {
+    const products = await Product.findAll();
+
+    return res.status(200).json({
+      status: 'Success',
+      message: 'Show all products in database',
+      products,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 'Error',
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   getHighestAndLowestProductPrice,
   getMostPurchasedPruductData,
   getProductsThatHaveIncreasedSales,
+  getAllProducts,
 };

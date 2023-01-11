@@ -49,6 +49,24 @@ const getTotalSalesOfEachBranch = async (req, res) => {
   }
 };
 
+const getAllBranches = async (req, res) => {
+  try {
+    const branches = await Branch.findAll();
+
+    return res.status(200).json({
+      status: 'Success',
+      message: 'Show all branches in database',
+      branches,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 'Error',
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   getTotalSalesOfEachBranch,
+  getAllBranches,
 };

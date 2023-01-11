@@ -194,8 +194,26 @@ const createCustomer = async (req, res) => {
   }
 };
 
+const getAllCustomers = async (req, res) => {
+  try {
+    const customers = await Customer.findAll();
+
+    return res.status(200).json({
+      status: 'Success',
+      message: 'Show all customers in database',
+      customers,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 'Error',
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   getNewestAndOldestCustomer,
   getCustomerDataThatSpendTheMost,
   createCustomer,
+  getAllCustomers,
 };
