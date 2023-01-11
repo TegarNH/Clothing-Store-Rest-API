@@ -46,6 +46,13 @@ const getMostPurchasedPruductData = async (req, res) => {
       });
     }
 
+    if (!(parseInt(month, 10) >= 1 && parseInt(month, 10) <= 12)) {
+      return res.status(400).json({
+        status: 'error',
+        msg: 'The month parameter must be a number from 1 to 12',
+      });
+    }
+
     // Search for data in the database according to the criteria
     const topProducts = [];
     const branches = await Branch.findAll();
