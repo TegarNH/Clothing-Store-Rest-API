@@ -6,14 +6,19 @@ module.exports = (sequelize, DataTypes) => {
       ProductSold.belongsTo(models.Product, {
         foreignKey: 'idProduct',
       });
-      ProductSold.belongsTo(models.Transaction, {
-        foreignKey: 'idTransaction',
+      ProductSold.belongsTo(models.Customer, {
+        foreignKey: 'idCustomer',
+      });
+      ProductSold.belongsTo(models.Branch, {
+        foreignKey: 'idBranch',
       });
     }
   }
   ProductSold.init({
     idProduct: DataTypes.INTEGER,
-    idTransaction: DataTypes.INTEGER,
+    idCustomer: DataTypes.INTEGER,
+    idBranch: DataTypes.INTEGER,
+    date: DataTypes.DATE,
     quantity: DataTypes.INTEGER,
     totalPrice: DataTypes.INTEGER,
   }, {

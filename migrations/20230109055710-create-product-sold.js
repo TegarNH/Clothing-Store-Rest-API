@@ -10,8 +10,14 @@ module.exports = {
       idProduct: {
         type: Sequelize.INTEGER,
       },
-      idTransaction: {
+      idCustomer: {
         type: Sequelize.INTEGER,
+      },
+      idBranch: {
+        type: Sequelize.INTEGER,
+      },
+      date: {
+        type: Sequelize.DATE,
       },
       quantity: {
         type: Sequelize.INTEGER,

@@ -2,6 +2,7 @@ const express = require('express');
 const productController = require('../controllers/product.controller');
 
 const router = express.Router();
-router.get('/', productController.getHighestAndLowestProductPrice);
+router.get('/highest-lowest-prices', productController.getHighestAndLowestProductPrice);
+router.get('/top-selling-products', productController.getMostPurchasedPruductData);
 
 module.exports = router;

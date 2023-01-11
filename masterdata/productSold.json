@@ -1,32 +1,90 @@
 [
   {
     "idProduct": 1,
-    "idTransaction": 1,
+    "idCustomer": 1,
+    "idBranch": 1,
+    "date": "2022-01-02",
     "quantity": 2,
     "totalPrice": 40000
   },
   {
-    "idProduct": 1,
-    "idTransaction": 2,
+    "idProduct": 3,
+    "idCustomer": 2,
+    "idBranch": 1,
+    "date": "2022-01-03",
     "quantity": 1,
-    "totalPrice": 20000
+    "totalPrice": 25000
   },
   {
     "idProduct": 2,
-    "idTransaction": 2,
+    "idCustomer": 3,
+    "idBranch": 2,
+    "date": "2022-01-03",
     "quantity": 1,
     "totalPrice": 15000
   },
   {
     "idProduct": 2,
-    "idTransaction": 3,
+    "idCustomer": 3,
+    "idBranch": 2,
+    "date": "2022-01-04",
     "quantity": 2,
     "totalPrice": 30000
   },
   {
     "idProduct": 3,
-    "idTransaction": 4,
+    "idCustomer": 2,
+    "idBranch": 1,
+    "date": "2023-01-05",
+    "quantity": 2,
+    "totalPrice": 180000
+  },
+  {
+    "idProduct": 1,
+    "idCustomer": 1,
+    "idBranch": 1,
+    "date": "2022-01-02",
+    "quantity": 2,
+    "totalPrice": 40000
+  },
+  {
+    "idProduct": 3,
+    "idCustomer": 2,
+    "idBranch": 1,
+    "date": "2022-01-03",
+    "quantity": 1,
+    "totalPrice": 25000
+  },
+  {
+    "idProduct": 2,
+    "idCustomer": 3,
+    "idBranch": 2,
+    "date": "2022-01-03",
+    "quantity": 1,
+    "totalPrice": 15000
+  },
+  {
+    "idProduct": 2,
+    "idCustomer": 3,
+    "idBranch": 2,
+    "date": "2022-01-04",
+    "quantity": 2,
+    "totalPrice": 30000
+  },
+  {
+    "idProduct": 3,
+    "idCustomer": 2,
+    "idBranch": 1,
+    "date": "2023-01-05",
     "quantity": 2,
     "totalPrice": 50000
+  },
+  {
+    "idProduct": 3,
+    "idCustomer": 1,
+    "idBranch": 1,
+    "date": "2023-01-05",
+    "quantity": 2,
+    "totalPrice": 200000
   }
 ]

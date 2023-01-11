@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       Branch.hasMany(models.Product, {
         foreignKey: 'idBranch',
       });
-      Branch.hasMany(models.Transaction, {
+      Branch.hasMany(models.ProductSold, {
         foreignKey: 'idBranch',
       });
     }

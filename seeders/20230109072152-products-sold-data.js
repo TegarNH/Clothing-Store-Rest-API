@@ -4,7 +4,9 @@ module.exports = {
   async up(queryInterface) {
     const dataProductSoldsToBeSeeded = productSoldsData.map((eachProductSoldData) => ({
       idProduct: eachProductSoldData.idProduct,
-      idTransaction: eachProductSoldData.idTransaction,
+      idCustomer: eachProductSoldData.idCustomer,
+      idBranch: eachProductSoldData.idBranch,
+      date: eachProductSoldData.date,
       quantity: eachProductSoldData.quantity,
       totalPrice: eachProductSoldData.totalPrice,
       createdAt: new Date(),
