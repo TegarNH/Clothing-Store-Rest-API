@@ -153,7 +153,49 @@ const getCustomerDataThatSpendTheMost = async (req, res) => {
   }
 };
 
+const createCustomer = async (req, res) => {
+  try {
+    const {
+      idBranch, name, address, phone,
+    } = req.body;
+
+    if (!idBranch || !name || !address || !phone) {
+      return res.status(404).json({
+        status: 'Failed',
+        message: 'the data in the request body is incomplete',
+      });
+    }
+
+    const branch = await Branch.findByPk(idBranch);
+    if (branch === null) {
+      return res.status(400).json({
+        status: 'Error',
+        message: 'idBranch not found',
+      });
+    }
+
+    const createdUser = await Customer.create({
+      idBranch,
+      name,
+      address,
+      phone,
+    });
+
+    return res.status(201).json({
+      status: 'success',
+      message: 'Customer created successfully',
+      data: createdUser,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 'error',
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   getNewestAndOldestCustomer,
   getCustomerDataThatSpendTheMost,
+  createCustomer,
 };
