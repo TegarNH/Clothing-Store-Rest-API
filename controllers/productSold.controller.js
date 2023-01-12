@@ -6,7 +6,7 @@ const getAllProductsSold = async (req, res) => {
 
     return res.status(200).json({
       status: 'Success',
-      message: 'Show all productsSold in database',
+      message: 'Show all Products Sold in database',
       productsSold,
     });
   } catch (error) {

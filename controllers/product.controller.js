@@ -47,7 +47,7 @@ const getMostPurchasedPruductData = async (req, res) => {
     if (!(parseInt(month, 10) >= 1 && parseInt(month, 10) <= 12)) {
       return res.status(400).json({
         status: 'error',
-        msg: 'The month query must be a number from 1 to 12',
+        message: 'The month query must be a number from 1 to 12',
       });
     }
 
@@ -132,7 +132,7 @@ const getMostPurchasedPruductData = async (req, res) => {
 
 const getProductsThatHaveIncreasedSales = async (req, res) => {
   try {
-    let { date } = req.body;
+    let { date } = req.query;
 
     if (!date) {
       const currentDate = new Date().getDate();

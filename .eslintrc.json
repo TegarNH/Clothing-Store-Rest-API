@@ -2,9 +2,11 @@
     "env": {
         "commonjs": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
-    "extends": "airbnb-base",
+    "plugins": ["jest"],
+    "extends": ["plugin:jest/recommended", "airbnb-base"],
     "overrides": [
     ],
     "parserOptions": {
@@ -15,6 +17,11 @@
       "global-require": "off",
       "no-console": "off",
       "no-plusplus": "off",
-      "no-restricted-globals": "off"
+      "no-restricted-globals": "off",
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/valid-expect": "error",
+      "jest/no-export": "off"
     }
 }

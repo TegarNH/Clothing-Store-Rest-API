@@ -70,7 +70,7 @@ const getCustomerDataThatSpendTheMost = async (req, res) => {
     if (!(parseInt(month, 10) >= 1 && parseInt(month, 10) <= 12)) {
       return res.status(400).json({
         status: 'error',
-        msg: 'The month query must be a number from 1 to 12',
+        message: 'The month query must be a number from 1 to 12',
       });
     }
 
@@ -164,6 +164,10 @@ const createCustomer = async (req, res) => {
         status: 'Failed',
         message: 'the data in the request body is incomplete',
       });
+    }
+
+    if (isNaN(idBranch)) {
+      return res.status(400).json({ error: 'Invalid idBranch data type. Expecting number' });
     }
 
     const branch = await Branch.findByPk(idBranch);
