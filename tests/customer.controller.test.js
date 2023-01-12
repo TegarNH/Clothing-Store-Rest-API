@@ -70,10 +70,10 @@ const customerTest = () => {
     });
   });
 
-  describe('POST /api/customer/', () => {
+  describe('POST /api/customer/create', () => {
     test('It should return a 404 status if request body is incomplete', async () => {
       const response = await request(app)
-        .post('/api/customer/')
+        .post('/api/customer/create')
         .send({
           idBranch: 1,
           name: 'Tegar Naufal Hanip',
@@ -87,7 +87,7 @@ const customerTest = () => {
 
     test('It should return error if idBranch is not a number', async () => {
       const res = await request(app)
-        .post('/api/customer/')
+        .post('/api/customer/create')
         .send({
           idBranch: 'abc',
           name: 'Tegar Naufal Hanip',
@@ -103,7 +103,7 @@ const customerTest = () => {
 
     test('It should return error if idBranch not found', async () => {
       const res = await request(app)
-        .post('/api/customer/')
+        .post('/api/customer/create')
         .send({
           idBranch: 4,
           name: 'Tegar Naufal Hanip',
@@ -118,7 +118,7 @@ const customerTest = () => {
 
     test('It should create a customer and return 201 status', async () => {
       const response = await request(app)
-        .post('/api/customer/')
+        .post('/api/customer/create')
         .send({
           idBranch: 1,
           name: 'Tegar Naufal Hanip',
